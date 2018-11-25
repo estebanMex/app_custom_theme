@@ -35,7 +35,13 @@ var path = require('path');
                             ]
                         }
                     }, {
-                        loader: 'sass-loader'
+                        loader: 'sass-loader',
+                        options: {
+                            includePaths: [
+                                path.resolve('node_modules'),
+                                path.resolve('node_modules/flag-icon-css/sass')
+                            ]
+                        }
                     }]
                 })
             }]
