@@ -1,0 +1,36 @@
+.btn-toggle {
+    width: 16px;
+    height: 16px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      border: 1px solid #000;
+      width: 100%;
+      position: absolute;
+      top: calc(50% - 1px);
+      bottom: auto;
+      transform: rotate(0deg);
+      transition: transform 0.25s linear;
+    }
+
+    &.btn-toggle--plus::before {
+      transform: rotate(90deg);
+    }
+
+    .btn-toggle--minus::before {
+      transform: rotate(0deg);
+    }
+  }
+
+.lo-checkout {
+  .card:not([class*="-summary"]) {
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
