@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "noLib": true,
+        "target": "es5",
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "./*",
+                "../../../dw-api-types/*",
+                "../../../storefront-reference-architecture/cartridges/*"
+            ]
+        }
+    },
+    "typeAcquisition": {
+        "enable": true
+    },
+    "include": [
+        "./app_custom_theme/**/*.js",
+        "../../../dw-api-types/*.d.ts",
+        "../../../dw-api-types/**/*.d.ts",
+        "../../../storefront-reference-architecture/cartridges/**/*.js",
+    ],
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/static/**": true
+      }
+}
