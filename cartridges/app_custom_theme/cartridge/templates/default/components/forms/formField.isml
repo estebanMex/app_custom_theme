@@ -1,0 +1,38 @@
+<isif condition="${
+    pdict.fieldtype === 'text' ||
+    pdict.fieldtype === 'tel'  ||
+    pdict.fieldtype === 'email' ||
+    pdict.fieldtype === 'date' ||
+    pdict.fieldtype === 'int' ||
+    pdict.fieldtype === 'number'
+    }" >
+    <input
+        type="${pdict.type}"
+        class="form-control <isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
+        id="${pdict.field.dynamicHtmlName}"
+        <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
+        <isprint value=${pdict.field.attributes} encoding="off" />
+    >
+</isif>
+
+<isif condition="${pdict.type === 'password'}" >
+    <input
+        type="${pdict.type}"
+        autocomplete="off"
+        class="form-control <isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
+        id="${pdict.field.dynamicHtmlName}"
+        <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
+        <isprint value=${pdict.field.attributes} encoding="off" />
+    >
+</isif>
+
+<isif condition="${pdict.type === 'checkbox'}">
+    <input
+        type="${pdict.type}"
+        autocomplete="off"
+        class="<isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
+        id="${pdict.field.dynamicHtmlName}"
+        <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
+        <isprint value=${pdict.field.attributes} encoding="off" />
+    >
+</isif>

@@ -1,4 +1,30 @@
-<ismodule template="/components/content/contentAsset"
-	name="contentasset"
-	attribute="aid"
+<ismodule
+    template="/components/content/contentAsset"
+    name="contentasset"
+    attribute="aid"
+/>
+
+<ismodule
+    template="/components/forms/formGroup"
+    name="formgroup"
+    attribute="field"
+    attribute="fieldtype"
+    attribute="classcsswrapper"
+    attribute="classcssfield"
+    attribute="classcsslabel"
+    attribute="labelafter"
+    attribute="invalidfeedback"
+    attribute="hasfloatlabel"
+    attribute="valueexample"
+    attribute="fieldhasautofocus"
+/>
+
+<ismodule
+    template="/components/forms/formField"
+    name="formfield"
+    attribute="fieldata"
+    attribute="type"
+    attribute="classcss"
+    attribute="csslabel"
+    attribute="hasautofocus"
 />

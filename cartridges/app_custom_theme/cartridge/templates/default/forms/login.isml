@@ -1,0 +1,87 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/login.js');
+    </isscript>
+
+    <div class="hero slant-down login-banner">
+        <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
+    </div>
+    <div class="container login-page">
+        <!---Breadcrumbs--->
+
+        <div class="row justify-content-center equal-height">
+            <div class="col-sm-8 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <isinclude template="/components/modules" sf-toolkit="on" />
+
+                        <form action="${pdict.createAccountUrl}" class="registration" method="POST" name="${pdict.profileForm.htmlName}">
+                            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                            
+                            <isformgroup
+                                field="${pdict.profileForm.customer.firstname}"
+                                fieldtype="text"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                                valueexample="first name"
+                                fieldhasautofocus="${true}"
+                            />
+
+                            <isformgroup
+                                field="${pdict.profileForm.customer.lastname}"
+                                fieldtype="text"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.customer.phone}"
+                                fieldtype="tel"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.customer.email}"
+                                fieldtype="email"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.customer.emailconfirm}"
+                                fieldtype="email"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.login.passwordconfirm}"
+                                fieldtype="password"
+                                labelafter="${true}"
+                                hasfloatlabel="${true}"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.customer.addtoemaillist}"
+                                fieldtype="checkbox"
+                                labelafter="${true}"
+                                classcsswrapper="form-group custom-control custom-checkbox"
+                                classcsslabel="form-control-label custom-control-label"
+                                classcssfield="custom-control-input"
+                            />
+
+                            <button type="submit" class="btn btn-block btn-primary">
+                                ${Resource.msg('button.createaccount.registration', 'registration', null)}
+                            </button>
+                            <div class="privacy-policy">
+                                ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
+                                <a href="${'#'}">
+                                    ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
+                                </a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

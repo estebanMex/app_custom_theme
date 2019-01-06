@@ -1,0 +1,47 @@
+<div class="${empty(pdict.classcsswrapper) ? 'form-group' : pdict.classcsswrapper }
+    <isif condition="${!!pdict.field.mandatory === true}"> required </isif>">
+
+    <isif condition="${!empty(pdict.hasfloatlabel) && pdict.hasfloatlabel === true }" >
+        <div class="has-float-label">
+    </isif>
+
+    <isif condition="${empty(pdict.labelafter)}" >
+        <label
+            class="${empty(pdict.classcsslabel) ? 'form-control-label' : pdict.classcsslabel }"
+            for="${pdict.field.dynamicHtmlName}">
+            <isprint value="${pdict.field.label}" encoding="htmlcontent" />
+        </label>
+    </isif>
+
+    <isformfield
+        fieldata="${pdict.field}"
+        type="${pdict.fieldtype}"
+        classcss="${!empty(pdict.classcssfield) ? pdict.classcssfield : ''}"
+        hasautofocus="${!empty(pdict.fieldhasautofocus) && pdict.fieldhasautofocus === true ? true : false }"
+    />
+
+    <isif condition="${!empty(pdict.labelafter) && pdict.labelafter === true }">
+        <label
+            class="${empty(pdict.classcsslabel) ? 'form-control-label' : pdict.classcsslabel }"
+            for="${pdict.field.dynamicHtmlName}">
+            <isprint value="${pdict.field.label}" encoding="htmlcontent" />
+        </label>
+    </isif>
+
+    <isif condition="${!empty(pdict.valueexample)}" >
+        <div class="value-example">
+            <small class="form-text text-muted"><isprint value="${pdict.valueexample}" encoding="on" /></small>
+        </div>
+    </isif>
+
+    <div class="invalid-feedback">
+        <isif condition="${!empty(pdict.invalidfeedback)}" >
+            <isprint value="${pdict.invalidfeedback}" encoding="on" />
+        </isif>
+    </div>
+
+    <isif condition="${!empty(pdict.hasfloatlabel) && pdict.hasfloatlabel === true }" >
+        </div><!-- .has-float-label -->
+    </isif>
+
+</div>
