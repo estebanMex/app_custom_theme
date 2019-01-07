@@ -19,7 +19,7 @@
 
                         <form action="${pdict.createAccountUrl}" class="registration" method="POST" name="${pdict.profileForm.htmlName}">
                             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                            
+
                             <isformgroup
                                 field="${pdict.profileForm.customer.firstname}"
                                 fieldtype="text"
@@ -63,9 +63,19 @@
                                 field="${pdict.profileForm.customer.addtoemaillist}"
                                 fieldtype="checkbox"
                                 labelafter="${true}"
-                                classcsswrapper="form-group custom-control custom-checkbox"
-                                classcsslabel="form-control-label custom-control-label"
-                                classcssfield="custom-control-input"
+                                classcsswrapper="form-group has-float-label"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.login.passwordconfirm}"
+                                fieldtype="password"
+                                labelafter="${true}"
+                                classcsswrapper="form-group has-float-label"
+                            />
+                            <isformgroup
+                                field="${pdict.profileForm.customer.addtoemaillist}"
+                                fieldtype="checkbox"
+                                labelafter="${true}" classcsswrapper="form-group custom-control custom-checkbox"
+                                classcsslabel="form-control-label custom-control-label" classcssfield="custom-control-input"
                             />
 
                             <button type="submit" class="btn btn-block btn-primary">
