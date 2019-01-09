@@ -22,60 +22,59 @@
 
                             <isformgroup
                                 field="${pdict.profileForm.customer.firstname}"
-                                fieldtype="text"
-                                labelafter="${true}"
+                                typeoffield="text"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
-                                valueexample="first name"
+                                exampleofvaluetoshow="first name"
                                 fieldhasautofocus="${true}"
                             />
 
                             <isformgroup
                                 field="${pdict.profileForm.customer.lastname}"
-                                fieldtype="text"
-                                labelafter="${true}"
+                                typeoffield="text"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
                             />
                             <isformgroup
                                 field="${pdict.profileForm.customer.phone}"
-                                fieldtype="tel"
-                                labelafter="${true}"
+                                typeoffield="tel"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
                             />
                             <isformgroup
                                 field="${pdict.profileForm.customer.email}"
-                                fieldtype="email"
-                                labelafter="${true}"
+                                typeoffield="email"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
                             />
                             <isformgroup
                                 field="${pdict.profileForm.customer.emailconfirm}"
-                                fieldtype="email"
-                                labelafter="${true}"
+                                typeoffield="email"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
                             />
+                            
                             <isformgroup
-                                field="${pdict.profileForm.login.passwordconfirm}"
-                                fieldtype="password"
-                                labelafter="${true}"
+                                field="${pdict.profileForm.login.password}"
+                                typeoffield="password"
+                                showlabelafterfield="${true}"
                                 hasfloatlabel="${true}"
                             />
-                            <isformgroup
-                                field="${pdict.profileForm.customer.addtoemaillist}"
-                                fieldtype="checkbox"
-                                labelafter="${true}"
-                                classcsswrapper="form-group has-float-label"
-                            />
+
                             <isformgroup
                                 field="${pdict.profileForm.login.passwordconfirm}"
-                                fieldtype="password"
-                                labelafter="${true}"
-                                classcsswrapper="form-group has-float-label"
+                                typeoffield="password"
+                                showlabelafterfield="${true}"
+                                hasfloatlabel="${true}"
                             />
+
                             <isformgroup
                                 field="${pdict.profileForm.customer.addtoemaillist}"
-                                fieldtype="checkbox"
-                                labelafter="${true}" classcsswrapper="form-group custom-control custom-checkbox"
-                                classcsslabel="form-control-label custom-control-label" classcssfield="custom-control-input"
+                                typeoffield="checkbox"
+                                showlabelafterfield="${true}"
+                                classcssforwrapper="form-group custom-control custom-checkbox"
+                                classcssforlabel="form-control-label custom-control-label"
+                                classcssforfield="custom-control-input"
                             />
 
                             <button type="submit" class="btn btn-block btn-primary">

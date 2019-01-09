@@ -4,27 +4,47 @@
     attribute="aid"
 />
 
+
+<iscomment>
+    attribute="field"               {formField} obj json formField
+    attribute="typeoffield"         {string} type of field (text|tel|email|date|int|number|password|checkbox)
+    attribute="hasautofocus"        {boolean} to set autofocus in current field (warning: only one filed should have this attribute on)
+    attribute="classcssforwrapper"  {string}
+    attribute="classcssforfield"    {string}
+    attribute="classcssforlabel"    {string}
+    attribute="showlabelafterfield" {boolean}
+    attribute="invalidfeedbacktext" {string}
+    attribute="hasfloatlabel"       {boolean}
+    attribute="exampleofvaluetoshow"{string}
+    attribute="fieldhasautofocus"   {boolean}
+</iscomment>
 <ismodule
     template="/components/forms/formGroup"
     name="formgroup"
     attribute="field"
-    attribute="fieldtype"
-    attribute="classcsswrapper"
-    attribute="classcssfield"
-    attribute="classcsslabel"
-    attribute="labelafter"
-    attribute="invalidfeedback"
+    attribute="typeoffield"
+    attribute="classcssforwrapper"
+    attribute="classcssforfield"
+    attribute="classcssforlabel"
+    attribute="showlabelafterfield"
+    attribute="invalidfeedbacktext"
     attribute="hasfloatlabel"
-    attribute="valueexample"
+    attribute="exampleofvaluetoshow"
     attribute="fieldhasautofocus"
 />
 
+<iscomment>
+    attribute="datafield"   {formField} obj json formField
+    attribute="typefield"   {string} type of field (text|tel|email|date|int|number|password|checkbox)
+    attribute="classcss"    {string}
+    attribute="hasautofocus"{boolean} to set autofocus in current field (warning: only one filed should have this attribute on)
+</iscomment>
 <ismodule
     template="/components/forms/formField"
     name="formfield"
-    attribute="fieldata"
-    attribute="type"
+    attribute="datafield"
+    attribute="typefield"
     attribute="classcss"
-    attribute="csslabel"
     attribute="hasautofocus"
 />
+ 

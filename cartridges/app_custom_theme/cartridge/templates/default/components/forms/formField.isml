@@ -1,40 +1,40 @@
 <isif condition="${
-    pdict.fieldtype === 'text' ||
-    pdict.fieldtype === 'tel'  ||
-    pdict.fieldtype === 'email' ||
-    pdict.fieldtype === 'date' ||
-    pdict.fieldtype === 'int' ||
-    pdict.fieldtype === 'number'
+    pdict.typefield === 'text'  ||
+    pdict.typefield === 'tel'   ||
+    pdict.typefield === 'email' ||
+    pdict.typefield === 'date'  ||
+    pdict.typefield === 'int'   ||
+    pdict.typefield === 'number'
     }" >
     <input
-        type="${pdict.type}"
+        type="${pdict.typefield}"
         placeholder="&nbsp;"
-        class="form-control <isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
-        id="${pdict.field.dynamicHtmlName}"
+        class="${empty(pdict.classcss) ? 'form-control' : pdict.classcss }"
+        id="${pdict.datafield.dynamicHtmlName}"
         <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
-        <isprint value=${pdict.field.attributes} encoding="off" />
+        <isprint value=${pdict.datafield.attributes} encoding="off" />
     >
 </isif>
 
-<isif condition="${pdict.type === 'password'}" >
+<isif condition="${pdict.typefield === 'password'}" >
     <input
-        type="${pdict.type}"
+        type="${pdict.typefield}"
         placeholder="&nbsp;"
         autocomplete="off"
-        class="form-control <isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
-        id="${pdict.field.dynamicHtmlName}"
+        class="${empty(pdict.classcss) ? 'form-control' : pdict.classcss }"
+        id="${pdict.datafield.dynamicHtmlName}"
         <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
-        <isprint value=${pdict.field.attributes} encoding="off" />
+        <isprint value=${pdict.datafield.attributes} encoding="off" />
     >
 </isif>
 
-<isif condition="${pdict.type === 'checkbox'}">
+<isif condition="${pdict.typefield === 'checkbox'}">
     <input
-        type="${pdict.type}"
+        type="${pdict.typefield}"
         autocomplete="off"
-        class="<isif condition="${!empty(pdict.classcss)}"> ${pdict.classcss} </isif>"
-        id="${pdict.field.dynamicHtmlName}"
+        class="${empty(pdict.classcss) ? 'form-control' : pdict.classcss }"
+        id="${pdict.datafield.dynamicHtmlName}"
         <isif condition="${!empty(pdict.hasautofocus) && pdict.hasautofocus === true}"> autofocus </isif>
-        <isprint value=${pdict.field.attributes} encoding="off" />
+        <isprint value=${pdict.datafield.attributes} encoding="off" />
     >
 </isif>
