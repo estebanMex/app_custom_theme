@@ -32,19 +32,3 @@
     attribute="exampleofvaluetoshow"
     attribute="fieldhasautofocus"
 />
-
-<iscomment>
-    attribute="datafield"   {formField} obj json formField
-    attribute="typefield"   {string} type of field (text|tel|email|date|int|number|password|checkbox)
-    attribute="classcss"    {string}
-    attribute="hasautofocus"{boolean} to set autofocus in current field (warning: only one filed should have this attribute on)
-</iscomment>
-<ismodule
-    template="/components/forms/formField"
-    name="formfield"
-    attribute="datafield"
-    attribute="typefield"
-    attribute="classcss"
-    attribute="hasautofocus"
-/>
- 

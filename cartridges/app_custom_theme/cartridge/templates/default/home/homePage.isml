@@ -10,6 +10,13 @@
         <isslot id="home-main-m" description="Main home page slot." context="global" />
     </div>
 
+    <div class="example-container">
+        <div class="example-row">
+            <div class="example-content-main">Main content</div>
+            <div class="example-content-secondary">Secondary content</div>
+        </div>
+    </div>
+
     <div class="container home-categories homepage">
         <div class="row home-main-categories no-gutters">
             <isslot id="home-categories-m" description="Categories slots on the home page." context="global" />
