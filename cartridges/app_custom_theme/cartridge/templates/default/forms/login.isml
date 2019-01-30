@@ -28,7 +28,6 @@
                                 valueexample="first name"
                                 fieldhasautofocus="${true}"
                             />
-
                             <isformgroup
                                 field="${pdict.profileForm.customer.lastname}"
                                 fieldtype="text"
@@ -63,19 +62,9 @@
                                 field="${pdict.profileForm.customer.addtoemaillist}"
                                 fieldtype="checkbox"
                                 labelafter="${true}"
-                                classcsswrapper="form-group has-float-label"
-                            />
-                            <isformgroup
-                                field="${pdict.profileForm.login.passwordconfirm}"
-                                fieldtype="password"
-                                labelafter="${true}"
-                                classcsswrapper="form-group has-float-label"
-                            />
-                            <isformgroup
-                                field="${pdict.profileForm.customer.addtoemaillist}"
-                                fieldtype="checkbox"
-                                labelafter="${true}" classcsswrapper="form-group custom-control custom-checkbox"
-                                classcsslabel="form-control-label custom-control-label" classcssfield="custom-control-input"
+                                classcsswrapper="form-group custom-control custom-checkbox"
+                                classcsslabel="form-control-label custom-control-label"
+                                classcssfield="custom-control-input"
                             />
 
                             <button type="submit" class="btn btn-block btn-primary">
