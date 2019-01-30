@@ -1,10 +1,10 @@
 <isif condition="${
-    pdict.fieldtype === 'text' ||
-    pdict.fieldtype === 'tel'  ||
-    pdict.fieldtype === 'email' ||
-    pdict.fieldtype === 'date' ||
-    pdict.fieldtype === 'int' ||
-    pdict.fieldtype === 'number'
+    pdict.type === 'text' ||
+    pdict.type === 'tel'  ||
+    pdict.type === 'email' ||
+    pdict.type === 'date' ||
+    pdict.type === 'int' ||
+    pdict.type === 'number'
     }" >
     <input
         type="${pdict.type}"
