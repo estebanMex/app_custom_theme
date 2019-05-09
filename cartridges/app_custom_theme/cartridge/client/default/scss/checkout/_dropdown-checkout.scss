@@ -27,7 +27,7 @@
 
 .lo-checkout {
   .card:not([class*="-summary"]) {
-    .card-header {
+    .card-header a {
       display: flex;
       justify-content: space-between;
       align-items: center;
