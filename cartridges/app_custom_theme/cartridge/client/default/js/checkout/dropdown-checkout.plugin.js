@@ -1,108 +1,150 @@
 (function definePlugin($) {
-  'use strict';
-    // ======= END PRIVATE METHODS  ==============
+  "use strict";
+  // ======= END PRIVATE METHODS  ==============
 
-    // ======= INIT PLUGIN   ==============
-  var pluginName = 'dropdowncheckout';
-    // if need to define default options
+  // ======= INIT PLUGIN   ==============
+  var pluginName = "dropdowncheckout";
+  // if need to define default options
   var defaults = {
-    propertyName: 'value'
+    propertyName: "value"
   };
 
-    /**
-     *
-     * @param {element} element where plugin is attached
-     * @param {Object} options object to override defaults
-     */
+  /**
+   *
+   * @param {element} element where plugin is attached
+   * @param {Object} options object to override defaults
+   */
   function Plugin(element, options) {
     this.element = element;
     this.options = $.extend({}, defaults, options);
     this.defaults = defaults;
     this.name = pluginName;
 
-        // start plugin
+    // start plugin
     this.init();
   }
 
-    // === PROTOTYPE OF PLUGIN
+  // === PROTOTYPE OF PLUGIN
   Plugin.prototype = {
     init: function init() {
       this.prepareElements()
-                .addDataAttributes()
-                .createToggleBtns()
-                .bindEvents();
+        .addDataAttributes()
+        .createToggleBtns()
+        .bindEvents();
 
       return this;
     },
-    prepareElements: function () {
-      this.$loCheckout = $(this.element).find('.lo-checkout__steps');
-      this.$cards = this.$loCheckout.find('.card').not('.ghost, [class*="-summary"]');
-      this.$cardsHeaders = this.$cards.find('.card-header');
-      this.$cardsBodys = this.$cards.find('.card-body');
+    prepareElements: function() {
+      this.$loCheckout = $(this.element).find(".lo-checkout__steps");
+      this.$cards = this.$loCheckout
+        .find(".card")
+        .not('.ghost, [class*="-summary"]');
+      this.$cardsHeaders = this.$cards.find(".card-header");
+      this.$cardsBodys = this.$cards.find(".card-body");
 
       return this;
     },
-    addDataAttributes: function () {
-            // by default expanded
-      this.$cards.not('[aria-expanded]').attr('aria-expanded', 'true');
+    addDataAttributes: function() {
+      // by default expanded
+      this.$cards.not("[aria-expanded]").attr("aria-expanded", "true");
 
       return this;
     },
-    createToggleBtns: function (params) {
-      this.$cardsHeaders.each(function () {
+    createToggleBtns: function(params) {
+      console.log('lalalal');
+      this.$cardsHeaders.each(function() {
         var $currentCardHeader = $(this);
-        var $btnEdit = $currentCardHeader.find('.edit-button');
+        var $btnEdit = $currentCardHeader.find(".edit-button");
         var hasEditBtn = $btnEdit.length;
 
         if (hasEditBtn) {
-          $btnEdit.addClass('btn-toggle js-btn-toggle');
+          $btnEdit.addClass("btn-toggle js-btn-toggle");
         } else {
-          $currentCardHeader.append('<span class="edit-button pull-right btn-toggle js-btn-toggle"></span>');
+          $currentCardHeader.append(
+            '<span class="edit-button btn-toggle js-btn-toggle"></span>'
+          );
         }
+
+        var $childsOfCurrentHeader = $currentCardHeader.find('h4, span');
+        console.log($childsOfCurrentHeader);
+        $($childsOfCurrentHeader).wrapAll('<a href="#" onclick="return false;"></a>');
+
       });
 
       return this;
     },
-    bindEvents: function () {
-      this.$loCheckout.on('click', '.card:not([class*="-summary"]) .card-header', function (evt) {
-        var $card = $(this).closest('.card');
-        var $header = $card.find('.card-header');
-        var $btnToggle = $header.find('.btn-toggle');
-        var $content = $card.find('.card-body');
+    bindEvents: function() {
+      this.$loCheckout.on(
+        "click",
+        '.card:not([class*="-summary"]) .card-header',
+        function(evt) {
+          var $card = $(this).closest(".card");
+          var $header = $card.find(".card-header");
+          var $btnToggle = $header.find(".btn-toggle");
+          var $content = $card.find(".card-body");
 
-                // @TODO find another condition to verify is open or closed
-        if ($content.is(':hidden')) {
-          $btnToggle.removeClass('btn-toggle--plus').addClass('btn-toggle--minus');
-          $card.attr('aria-expanded', true);
-          $content.slideDown('slow', function () {
-            console.log('slideDown');
-          });
-        } else {
-          $btnToggle.removeClass('btn-toggle--minus').addClass('btn-toggle--plus');
-          $card.attr('aria-expanded', false);
-          $content.slideUp('slow', function () {
-            console.log('slideUp');
-          });
+          // @TODO find another condition to verify is open or closed
+          if ($content.is(":hidden")) {
+            $btnToggle
+              .removeClass("btn-toggle--plus")
+              .addClass("btn-toggle--minus");
+            $card.attr("aria-expanded", true);
+            $content.slideDown("slow", function() {
+              console.log("slideDown");
+            });
+          } else {
+            $btnToggle
+              .removeClass("btn-toggle--minus")
+              .addClass("btn-toggle--plus");
+            $card.attr("aria-expanded", false);
+            $content.slideUp("slow", function() {
+              console.log("slideUp");
+            });
+          }
         }
-      });
+      );
+    },
+    keyboardAccessibility: function() {
+      var keyboardAccessibility = require("../components/keyboardAccessibility");
+
+      keyboardAccessibility(
+        ".card-header > a",
+        {
+          9: function() {
+            console.log('TAB');
+            // tab
+            // $(this)
+            //   .removeClass("show")
+            //   .children(".dropdown-menu")
+            //   .removeClass("show");
+          }
+        },
+        function() {
+          if (!$(this).hasClass("show")) {
+            $(this).addClass("show");
+          }
+          return $(this)
+            .find(".dropdown-country-selector")
+            .children("a");
+        }
+      );
     }
   };
 
-  $.fn[pluginName] = function (options) { // eslint-disable-line no-param-reassign
-    return this.each(function () {
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName,
-                    new Plugin(this, options));
+  $.fn[pluginName] = function(options) {
+    // eslint-disable-line no-param-reassign
+    return this.each(function() {
+      if (!$.data(this, "plugin_" + pluginName)) {
+        $.data(this, "plugin_" + pluginName, new Plugin(this, options));
       }
     });
   };
-}(jQuery));
-
+})(jQuery);
 
 var exports = {
-  initialize: function () {
-    console.count('initalize dropdowncheckout 2');
-    $('.js-lo-checkout').dropdowncheckout();
+  initialize: function() {
+    console.count("initalize dropdowncheckout 2");
+    $(".js-lo-checkout").dropdowncheckout();
   }
 };
 

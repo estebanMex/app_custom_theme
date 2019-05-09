@@ -3,6 +3,7 @@
 module.exports = function (selector, keyFunctions, preFunction) {
     $(selector).on('keydown', function (e) {
         var key = e.which;
+        console.log(key)
         var supportedKeyCodes = [37, 38, 39, 40, 27];
         if (supportedKeyCodes.indexOf(key) >= 0) {
             e.preventDefault();

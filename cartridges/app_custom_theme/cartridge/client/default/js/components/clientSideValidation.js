@@ -39,6 +39,7 @@ module.exports = {
             e.preventDefault();
             this.setCustomValidity('');
             if (!this.validity.valid) {
+                console.log(this.data());
                 var validationMessage = this.validationMessage;
                 $(this).addClass('is-invalid');
                 if (this.validity.patternMismatch && $(this).data('pattern-mismatch')) {
